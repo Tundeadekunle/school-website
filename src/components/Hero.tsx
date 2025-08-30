@@ -148,7 +148,7 @@ useEffect(() => {
 
 
   return (
-    <section id="home" className="relative bg-[url('/school1.jpeg')] h-screen overflow-hidden">
+    <section id="home" className="relative bg-[url('/school1.jpeg')] h-screen overflow-hidden pt-24 md:pt-40 pb-20 md:pb-28">
         <div className="absolute inset-0 bg-black opacity-50"></div>
       <AnimatePresence mode="wait">
         <motion.div
@@ -161,8 +161,8 @@ useEffect(() => {
         >
           <div className="absolute inset-0 bg-black opacity-20"></div>
           
-          <div className="container mx-auto px-4 z-10">
-            <div className="flex flex-col md:flex-row items-center">
+          <div className="container mx-auto px-4 z-10 pt-80 md:pt-80 pb-20 md:pb-80">
+            <div className="flex flex-col md:flex-row items-center ">
               <motion.div 
                 className="md:w-1/2 mb-10 md:mb-0 text-white"
                 initial={{ x: -100, opacity: 0 }}
