@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type MouseEvent } from 'react';
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -24,6 +24,15 @@ const Navbar = () => {
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  function handleUpload(event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>): void {
+    event.preventDefault();
+    // close mobile menu if open
+    setIsMobileMenuOpen(false);
+    // navigate to the application page (use an internal route or external URL as needed)
+    // using window.location keeps this component free of extra Next.js imports
+    window.location.href = '/upload'; // replace with your application page URL
+  }
 
   return (
     <nav
@@ -52,9 +61,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:block">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+          <Link href="/upload" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:-translate-y-1" onClick={handleUpload}>
             Apply Now
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -103,7 +112,7 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-colors duration-300 w-full mt-4">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-colors duration-300 w-full mt-4" onClick={handleUpload} >
               Apply Now
             </button>
           </div>
